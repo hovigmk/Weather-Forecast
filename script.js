@@ -1,6 +1,6 @@
 function fetchweather(queryURL) {
   var APIKey = "46d767d8cdd700f17ec41548fc1afb0f";
-  var city = "Toronto";
+  var city;
 
   var queryURL =
     "http://api.openweathermap.org/data/2.5/weather?q=" +
@@ -13,4 +13,12 @@ function fetchweather(queryURL) {
     .then((data) => console.log(data));
 }
 
-fetch();
+fetchweather();
+
+// function DisplayWeather(data) {
+//   const name = data;
+//   const icon, description = data.weather;
+//   const temp, humidity = data.main;
+//   const speed = data.wind;
+
+// }

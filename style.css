@@ -1,6 +1,8 @@
 body {
   font-family: "Open Sans", sans-serif;
-  background: rgb(7, 197, 255);
+  background-image: url(landscape3.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
 }
 
 h1 {
@@ -11,4 +13,8 @@ h1 {
     rgb(78, 236, 125),
     rgb(0, 123, 255)
   );
+}
+
+.card {
+  background-color: rgba(245, 245, 245, 0.5);
 }
