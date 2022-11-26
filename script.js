@@ -10,8 +10,6 @@ function fetchweather(queryURL) {
     .then((data) => this.displayWeather(data));
 }
 
-fetchweather();
-
 function displayWeather(data) {
   const name = data;
   const { icon, description } = data.weather[0];
@@ -20,3 +18,5 @@ function displayWeather(data) {
 
   console.log(name, icon, description, temp, humidity, speed);
 }
+
+fetchweather();
