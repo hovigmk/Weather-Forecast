@@ -7,7 +7,16 @@ function fetchweather(queryURL) {
 
   fetch(queryURL)
     .then((response) => response.json())
-    .then((data) => console.log(data));
+    .then((data) => this.displayWeather(data));
 }
 
 fetchweather();
+
+function displayWeather(data) {
+  const name = data;
+  const { icon, description } = data.weather[0];
+  const { temp, humidity } = data.main;
+  const speed = data.wind;
+
+  console.log(name, icon, description, temp, humidity, speed);
+}
