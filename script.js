@@ -4,7 +4,7 @@ function fetchweather(queryURL) {
   var city = "Toronto";
   var lat = 43.653225;
   var lon = -79.383186;
-  var queryURL = `http://api.openweathermap.org/data/2.5/forecast?lat=${lat}&lon=${lon}&units=imperial&appid=${APIKey}`;
+  var queryURL = `http://api.openweathermap.org/geo/1.0/reverse?lat=${lat}&lon=${lon}&limit={limit}&appid=${APIKey}`;
 
   fetch(queryURL)
     .then((response) => response.json())
