@@ -27,7 +27,7 @@ function fetchWeather() {
       $("main").html(
         `<div>
           <h2>
-            ${city} ${dt} ${icon}
+            ${city} ${dt} <img src=${iconsrc}>
           </h2>
           <h3>Temp: ${temp}</h3>
           <h3>Wind: ${speed}</h3>
