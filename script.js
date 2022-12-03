@@ -1,23 +1,42 @@
-function fetchweather(queryURL) {
-  var APIKey = "46d767d8cdd700f17ec41548fc1afb0f";
+var search = document.getElementById("search-button");
+search.addEventListener("click", fetchWeather);
 
-  var city = "Toronto";
-  var lat = 43.653225;
-  var lon = -79.383186;
-  var queryURL = `http://api.openweathermap.org/geo/1.0/reverse?lat=${lat}&lon=${lon}&limit={limit}&appid=${APIKey}`;
+var APIKey = "46d767d8cdd700f17ec41548fc1afb0f";
+
+function fetchWeather() {
+  let city = $("input").val();
+
+  if (!city) return;
+
+  var queryURL = `https://api.openweathermap.org/data/2.5/forecast?&appid=${APIKey}&units=imperial&q=${city}`;
 
   fetch(queryURL)
-    .then((response) => response.json())
-    .then((data) => console.log(data));
+    .then(function (res) {
+      return res.json();
+    })
+    .then(function ({ list }) {
+      console.log(list[0]);
+      let {
+        dt,
+        main: { temp, humidity },
+        wind: { speed },
+        weather: [{ icon }],
+      } = list[0];
+
+      $("main").html(
+        `<div>
+          <h1>
+            ${city} ${dt} ${icon}
+          </h1>
+          <h3>Temp: ${temp}</h3>
+          <h3>Wind: ${speed}</h3>
+          <h3>Humidity: ${humidity}</h3>
+        </div>`
+      );
+    })
+    .catch(function (err) {
+      console.error(err);
+    });
 }
 
-// function displayWeather(data) {
-//   const name = data;
-//   const { icon, description } = data.weather[0];
-//   const { temp, humidity } = data.main;
-//   const speed = data.wind;
-
-//   console.log(name, icon, description, temp, humidity, speed);
-// }
-
-fetchweather();
+$("button").on("click", fetchWeather());

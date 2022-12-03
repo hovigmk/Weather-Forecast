@@ -29,8 +29,9 @@
       <h1>Weather Dashboard</h1>
     </header>
     <div class="container-fluid">
-      <div class="row row-cols-1 row-cols-md-3 g-4">
-        <aside class="col-lg-3 bg-light">
+      <div class="row">
+
+        <aside class="col-md-3 bg-light">
           <h5 class="mt-1">Search for a City:</h5>
           <div class="form-inline form-group">
             <input class="form-control" type="text" id="search-value" />
@@ -41,63 +42,13 @@
           ​
           <ul class="list-group history"></ul>
         </aside>
-        <div class="col">
-          <div class="card h-100">
-            <img src="..." class="card-img-top" alt="..." />
-            <div class="card-body">
-              <h5 class="card-title">Weather:</h5>
-              <p class="card-text">Temperature:</p>
-              <p class="card-text">Humidity:</p>
-              <p class="card-text">Wind Speed:</p>
-            </div>
-          </div>
+        <div class="col-md-8">
+          <main></main>
+          <h2>5-Day Forecast</h2>
+          <section class="forecast"></section>
         </div>
-        <div class="col">
-          <div class="card h-100">
-            <img src="..." class="card-img-top" alt="..." />
-            <div class="card-body">
-              <h5 class="card-title">Weather:</h5>
-              <p class="card-text">Temperature:</p>
-              <p class="card-text">Humidity:</p>
-              <p class="card-text">Wind Speed:</p>
-            </div>
-          </div>
-        </div>
-        <div class="col">
-          <div class="card h-100">
-            <img src="..." class="card-img-top" alt="..." />
-            <div class="card-body">
-              <h5 class="card-title">Weather:</h5>
-              <p class="card-text">Temperature:</p>
-              <p class="card-text">Humidity:</p>
-              <p class="card-text">Wind Speed:</p>
-            </div>
-          </div>
-        </div>
-        <div class="col">
-          <div class="card h-100">
-            <img src="..." class="card-img-top" alt="..." />
-            <div class="card-body">
-              <h5 class="card-title">Weather:</h5>
-              <p class="card-text">Temperature:</p>
-              <p class="card-text">Humidity:</p>
-              <p class="card-text">Wind Speed:</p>
-            </div>
-          </div>
-        </div>
-        <div class="col">
-          <div class="card h-100">
-            <img src="..." class="card-img-top" alt="..." />
-            <div class="card-body">
-              <h5 class="card-title">Weather:</h5>
-              <p class="card-text">Temperature:</p>
-              <p class="card-text">Humidity:</p>
-              <p class="card-text">Wind Speed:</p>
-            </div>
-          </div>
-        </div>
-      </div>
     </div>
+  </div>
     <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
     <script src="script.js"></script>
   </body>
