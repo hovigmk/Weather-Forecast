@@ -23,7 +23,7 @@ function fetchWeather() {
         weather: [{ icon }],
       } = list[0];
 
-      var iconsrc = "http://openweathermap.org/img/w" + icon + ".png";
+      var iconsrc = "http://openweathermap.org/img/w/" + icon + ".png";
       $("main").html(
         `<div>
           <h2>
