@@ -23,11 +23,12 @@ function fetchWeather() {
         weather: [{ icon }],
       } = list[0];
 
+      var iconsrc = "http://openweathermap.org/img/w" + icon + ".png";
       $("main").html(
         `<div>
-          <h1>
+          <h2>
             ${city} ${dt} ${icon}
-          </h1>
+          </h2>
           <h3>Temp: ${temp}</h3>
           <h3>Wind: ${speed}</h3>
           <h3>Humidity: ${humidity}</h3>
