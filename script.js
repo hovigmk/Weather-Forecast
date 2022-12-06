@@ -23,11 +23,13 @@ function fetchWeather() {
         weather: [{ icon }],
       } = list[0];
 
+      var todaydate = " (" + new Date().toLocaleDateString() + ")";
+
       var iconsrc = "http://openweathermap.org/img/w/" + icon + ".png";
       $("main").html(
         `<div>
           <h2>
-            ${city} ${dt} <img src=${iconsrc}>
+            ${city} ${todaydate} <img src=${iconsrc}>
           </h2>
           <h3>Temp: ${temp}</h3>
           <h3>Wind: ${speed}</h3>
