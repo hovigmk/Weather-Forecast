@@ -2,6 +2,14 @@ var search = document.getElementById("search-button");
 search.addEventListener("click", fetchWeather);
 $("button").on("click", fetchWeather());
 let store = JSON.parse(localStorage.getItem("history")) || [];
+var historyEl = document.querySelector(".history");
+historyEl.addEventListener("click", searchHistory);
+
+function searchHistory(e) {
+  console.log(e.target);
+  var cityName = e.target.getAttribute("id");
+  console.log(cityName);
+}
 
 if (store.length) {
   $(".history").html("");
@@ -9,7 +17,7 @@ if (store.length) {
   store.forEach((city) => {
     document.querySelector(
       ".history"
-    ).innerHTML += `<button class="btn btn-info m-2">${city}</button>`;
+    ).innerHTML += `<button id=${city} class="btn btn-info m-2">${city}</button>`;
   });
 }
 function storeCity(city) {
