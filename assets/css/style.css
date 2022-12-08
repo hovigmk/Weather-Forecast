@@ -1,11 +1,11 @@
 body {
   font-family: "Open Sans", sans-serif;
-  background-image: url(landscape3.jpg);
+  background-image: url(../images/landscape3.jpg);
   background-repeat: no-repeat;
   background-size: cover;
 }
 
-h1 {
+header h1 {
   margin-bottom: 0%;
   background-image: linear-gradient(
     to right,
@@ -15,6 +15,15 @@ h1 {
   );
 }
 
+.forecast {
+  display: flex;
+}
+
 .card {
-  background-color: rgba(245, 245, 245, 0.5);
+  /* background-color: rgba(245, 245, 245, 0.5); */
+  width: 200px;
+  background: black;
+  color: white;
+  margin: 5px;
+  padding: 5px;
 }
