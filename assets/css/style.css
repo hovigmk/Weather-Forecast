@@ -20,11 +20,17 @@ header h1 {
 }
 
 .card {
-  /* background-color: rgba(245, 245, 245, 0.5); */
-  width: 200px;
-  background: black;
-  color: white;
-  margin: 5px;
+  background-color: rgba(245, 245, 245, 0.5);
+  width: 300px;
+  color: black;
+  margin: 10px;
   padding: 5px;
-  font-size: 200px;
+  font-size: px;
+}
+main {
+  background-color: rgba(245, 245, 245, 0.5);
+}
+
+aside {
+  background-color: rgba(245, 245, 245, 0.5);
 }
