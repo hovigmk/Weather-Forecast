@@ -1,12 +1,8 @@
 var search = document.getElementById("search-button");
 search.addEventListener("click", fetchWeather);
 $("button").on("click", fetchWeather());
-let store = localStorage.history
-  ? JSON.parse(localStorage.getItem("history"))
-  : [];
-// let searchcity = $("input").val();
-// // $("input").val("");
-// // fetchWeather(searchcity);
+let store = JSON.parse(localStorage.getItem("history")) || [];
+
 if (store.length) {
   $(".history").html("");
 
@@ -44,17 +40,18 @@ if (store.length) {
 //   let searchcity = $("input").val();
 //   history.push(searchcity);
 // }
-
+function storeCity(city) {
+  store.push(city);
+  localStorage.setItem("history", JSON.stringify(store));
+  console.log(store);
+}
 function fetchWeather() {
   $(".forecast").html("");
   var city = $("input").val();
 
   if (!city) return;
+  storeCity(city);
 
-  function storeCity(city) {
-    store.push(city);
-    localStorage.setItem("history", JSON.stringify(store));
-  }
   var queryURL = `https://api.openweathermap.org/data/2.5/forecast?&appid=${APIKey}&units=imperial&q=${city}`;
 
   fetch(queryURL)
