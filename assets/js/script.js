@@ -12,35 +12,11 @@ if (store.length) {
     ).innerHTML += `<button class="btn btn-info m-2">${city}</button>`;
   });
 }
-// var history = JSON.parse(localStorage.getItem("history")) || [];
-// // history.push(searchcity);
-// localStorage.setItem("history", JSON.stringify(history));
-// //sets history array search to correct length
-// if (history.length > 0) {
-//   fetchWeather(history[history.length - 1]);
-// }
-// //makes a row for each element in history array(searchTerms)
-// for (var i = 0; i < history.length; i++) {
-//   createRow(history[i]);
-// }
-
-// //puts the searched cities underneath the previous searched city
-// function createRow(text) {
-//   var listItem = $("<li>").addClass("list-group-item").text(text);
-//   $(".history").append(listItem);
-// }
-
-// //listener for list item on click function
-// $(".history").on("click", "li", function () {
-//   fetchWeather($(this).text());
-//   // weatherForecast($(this).text());
-// });
-// function searchistory() {
-//   var history = JSON.parse(localStorage.getItem("history")) || [];
-//   let searchcity = $("input").val();
-//   history.push(searchcity);
-// }
 function storeCity(city) {
+  window.localStorage.clear();
+  if (store.includes(city)) {
+    return;
+  }
   store.push(city);
   localStorage.setItem("history", JSON.stringify(store));
   console.log(store);
