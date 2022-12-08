@@ -1,6 +1,6 @@
 var search = document.getElementById("search-button");
 search.addEventListener("click", fetchWeather);
-
+$("button").on("click", fetchWeather());
 let store = localStorage.history ? JSON.parse(localStorage.history) : [];
 
 if (store.length) {
@@ -14,6 +14,7 @@ if (store.length) {
 }
 
 function fetchWeather() {
+  $(".forecast").html("");
   let city = $("input").val();
 
   if (!city) return;
@@ -41,9 +42,9 @@ function fetchWeather() {
           <h1>
             ${city} ${todaydate} <img src=${iconsrc}>
           </h1>
-          <h3>Temp: ${temp}</h3>
-          <h3>Wind: ${speed}</h3>
-          <h3>Humidity: ${humidity}</h3>
+          <h3>Temp: ${temp} °F </h3>
+          <h3>Wind: ${speed} MPH</h3>
+          <h3>Humidity: ${humidity} %</h3>
         </div>`
       );
 
@@ -59,9 +60,9 @@ function fetchWeather() {
             <div class="card">
              <h3> ${new Date(dt * 1000).toLocaleDateString()}</h3>
               <img src="http://openweathermap.org/img/w/${icon}.png">
-              <h3>Temp: ${temp}</h3>
-              <h3>Wind: ${speed}</h3>
-              <h3>Humidity: ${humidity}</h3>
+              <h3>Temp: ${temp} °F</h3>
+              <h3>Wind: ${speed} MPH</h3>
+              <h3>Humidity: ${humidity} </h3>
             </div>
         `;
       }
@@ -70,5 +71,3 @@ function fetchWeather() {
       console.error(err);
     });
 }
-
-$("button").on("click", fetchWeather());
