@@ -1,6 +1,8 @@
 var search = document.getElementById("search-button");
 search.addEventListener("click", fetchWeather);
-$("button").on("click", fetchWeather);
+var cityhistoryEl = document.querySelector(".cityhistory");
+cityhistoryEl.addEventListener("click", fetchWeather);
+//$("button").on("click", fetchWeather);
 let store = JSON.parse(localStorage.getItem("history")) || [];
 var historyEl = document.querySelector(".history");
 historyEl.addEventListener("click", searchHistory);
@@ -14,11 +16,10 @@ if (store.length) {
   store.forEach((city) => {
     document.querySelector(
       ".history"
-    ).innerHTML += `<button id=${city} class="btn btn-info m-2">${city}</button>`;
+    ).innerHTML += `<button id=${city} class=" cityhistory btn btn-info m-2">${city}</button>`;
   });
 }
 function storeCity(city) {
-  //localStorage.clear();
   if (store.includes(city)) {
     return;
   }
@@ -29,7 +30,6 @@ function storeCity(city) {
 function getSearchedCity() {
   $(".forecast").html("");
   city = $("input").val();
-  //whever someone searched for a city, we add a new button inside the .history html tag  (like what you are doing from line 18-20)
   document.querySelector(
     ".history"
   ).innerHTML += `<button id=${city} class="btn btn-info m-2">${city}</button>`;
@@ -49,7 +49,6 @@ function fetchWeather() {
       return res.json();
     })
     .then(function ({ list }) {
-      // console.log(list);
       let {
         dt,
         main: { temp, humidity },

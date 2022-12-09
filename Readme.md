@@ -1,3 +1,9 @@
+## 06 Weather Forecast
+
+## Description
+
+a weather application that allows the user to search any city name and find out the weather at the current time and the forecast for the next 5 days and it also saves their search history so they can just click on the searched city next time.
+
 ## AS A traveler
 
 I WANT to see the weather outlook for multiple cities
@@ -16,3 +22,7 @@ WHEN I click on a city in the search history
 THEN I am again presented with current and future conditions for that city
 
 Deployed link: https://hovigmk.github.io/Weather-Forecast/
+
+Repository link: https://github.com/hovigmk/Weather-Forecast
+
+Screenshots:
