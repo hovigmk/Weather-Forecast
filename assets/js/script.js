@@ -1,19 +1,16 @@
 var search = document.getElementById("search-button");
 search.addEventListener("click", fetchWeather);
-$("button").on("click", fetchWeather());
+$("button").on("click", fetchWeather);
 let store = JSON.parse(localStorage.getItem("history")) || [];
 var historyEl = document.querySelector(".history");
 historyEl.addEventListener("click", searchHistory);
-
+var city;
 function searchHistory(e) {
-  console.log(e.target);
-  var cityName = e.target.getAttribute("id");
-  console.log(cityName);
+  city = e.target.getAttribute("id");
+  fetchWeather();
 }
-
 if (store.length) {
   $(".history").html("");
-
   store.forEach((city) => {
     document.querySelector(
       ".history"
@@ -21,7 +18,7 @@ if (store.length) {
   });
 }
 function storeCity(city) {
-  window.localStorage.clear();
+  //localStorage.clear();
   if (store.includes(city)) {
     return;
   }
@@ -29,15 +26,24 @@ function storeCity(city) {
   localStorage.setItem("history", JSON.stringify(store));
   console.log(store);
 }
-function fetchWeather() {
+function getSearchedCity() {
   $(".forecast").html("");
-  var city = $("input").val();
-
+  city = $("input").val();
+  //whever someone searched for a city, we add a new button inside the .history html tag  (like what you are doing from line 18-20)
+  document.querySelector(
+    ".history"
+  ).innerHTML += `<button id=${city} class="btn btn-info m-2">${city}</button>`;
+}
+function fetchWeather() {
+  if (!city) {
+    getSearchedCity();
+  }
+  console.log("from fetch Weather", city);
   if (!city) return;
   storeCity(city);
-
   var queryURL = `https://api.openweathermap.org/data/2.5/forecast?&appid=${APIKey}&units=imperial&q=${city}`;
 
+  document.querySelector(".forecast").innerHTML = "";
   fetch(queryURL)
     .then(function (res) {
       return res.json();
@@ -50,9 +56,7 @@ function fetchWeather() {
         wind: { speed },
         weather: [{ icon }],
       } = list[0];
-
       var todaydate = " (" + new Date(dt * 1000).toLocaleDateString() + ")";
-
       var iconsrc = "http://openweathermap.org/img/w/" + icon + ".png";
       $("main").html(
         `<div>
@@ -64,7 +68,6 @@ function fetchWeather() {
           <h3>Humidity: ${humidity} %</h3>
         </div>`
       );
-
       for (let i = 5; i < list.length; i = i + 8) {
         let {
           dt,
@@ -72,7 +75,6 @@ function fetchWeather() {
           wind: { speed },
           weather: [{ icon }],
         } = list[i];
-
         document.querySelector(".forecast").innerHTML += `
             <div class="card">
              <h3> ${new Date(dt * 1000).toLocaleDateString()}</h3>
