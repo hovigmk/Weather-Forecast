@@ -6,6 +6,8 @@ let store = JSON.parse(localStorage.getItem("history")) || [];
 var historyEl = document.querySelector(".history");
 historyEl.addEventListener("click", searchHistory);
 var city;
+
+// This function creates and appends the searched cities
 function searchHistory(e) {
   city = e.target.getAttribute("id");
   fetchWeather();
@@ -20,6 +22,7 @@ if (store.length) {
     cityhistoryEl.addEventListener("click", fetchWeather);
   });
 }
+// This function stores the cities that were searched
 function storeCity(city) {
   if (store.includes(city)) {
     return;
@@ -28,6 +31,8 @@ function storeCity(city) {
   localStorage.setItem("history", JSON.stringify(store));
   console.log(store);
 }
+
+// This function allows the user to click on the history of one the searched city instead of typing it again
 function getSearchedCity() {
   $(".forecast").html("");
   city = $("input").val();
@@ -37,9 +42,9 @@ function getSearchedCity() {
 
   fetchWeather();
 }
-function fetchWeather() {
-  //getSearchedCity();
 
+// This function fetches the open weather API and displays the current weather and the next five days
+function fetchWeather() {
   console.log("from fetch Weather", city);
   if (!city) return;
   storeCity(city);
