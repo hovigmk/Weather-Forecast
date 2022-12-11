@@ -36,9 +36,8 @@ function getSearchedCity() {
   ).innerHTML += `<button id=${city} class="btn btn-info m-2">${city}</button>`;
 }
 function fetchWeather() {
-  if (!city) {
-    getSearchedCity();
-  }
+  getSearchedCity();
+
   console.log("from fetch Weather", city);
   if (!city) return;
   storeCity(city);
