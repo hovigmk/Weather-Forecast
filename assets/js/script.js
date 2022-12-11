@@ -82,7 +82,7 @@ function fetchWeather() {
           weather: [{ icon }],
         } = list[i];
         document.querySelector(".forecast").innerHTML += `
-            <div class="card">
+            <div class=" container-fluid card">
              <h3> ${new Date(dt * 1000).toLocaleDateString()}</h3>
               <img src="http://openweathermap.org/img/w/${icon}.png">
               <h3>Temp: ${temp} °F</h3>
