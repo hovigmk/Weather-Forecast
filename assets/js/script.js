@@ -1,3 +1,4 @@
+var APIKey = "46d767d8cdd700f17ec41548fc1afb0f";
 var search = document.getElementById("search-button");
 search.addEventListener("click", getSearchedCity);
 
