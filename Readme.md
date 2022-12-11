@@ -26,3 +26,7 @@ Deployed link: https://hovigmk.github.io/Weather-Forecast/
 Repository link: https://github.com/hovigmk/Weather-Forecast
 
 Screenshots:
+
+![screenshot of usage](./assets/images/SS1.jpg)
+
+![screenshot of usage](./assets/images/SS2.jpg)
