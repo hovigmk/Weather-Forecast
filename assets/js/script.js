@@ -1,5 +1,5 @@
 var search = document.getElementById("search-button");
-search.addEventListener("click", fetchWeather);
+search.addEventListener("click", getSearchedCity);
 
 //$("button").on("click", fetchWeather);
 let store = JSON.parse(localStorage.getItem("history")) || [];
@@ -34,9 +34,11 @@ function getSearchedCity() {
   document.querySelector(
     ".history"
   ).innerHTML += `<button id=${city} class="btn btn-info m-2">${city}</button>`;
+
+  fetchWeather();
 }
 function fetchWeather() {
-  getSearchedCity();
+  //getSearchedCity();
 
   console.log("from fetch Weather", city);
   if (!city) return;
