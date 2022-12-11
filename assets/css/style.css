@@ -34,3 +34,6 @@ main {
 aside {
   background-color: rgba(245, 245, 245, 0.5);
 }
+
+@media screen and (max-width: 768px), screen and (max-width: 575px) {
+}
